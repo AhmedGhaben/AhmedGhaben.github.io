@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ahmed Ghaben, Applied Mathematics and Computer Science student at MIPT. Research in combinatorial optimization and full-stack software projects.">
+<title>Ahmed Ghaben</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single column set like a typeset paper, numbered sections, a narrow margin column for dates and labels */
+:root{
+  --bg:#ffffff; --fg:#1a1d24; --muted:#5d6372; --line:#e2e5eb; --rule:#1a1d24; --accent:#1f3fa8; --mark:#fff3c4; color-scheme:light;
+  --serif:"STIX Two Text",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font:17px/1.65 var(--serif);padding-inline:16px;padding-block:0 72px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.page{max-width:860px;margin:0 auto}
+.todo{background:var(--mark);font-family:var(--sans);font-size:.85em;padding:0 4px;border-radius:2px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:16px;border-bottom:1px solid var(--line);font:500 14px var(--sans);z-index:2}
+nav .name{color:var(--fg);text-decoration:none;font-weight:600}
+nav ul{display:flex;gap:20px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none}
+nav ul a:hover{color:var(--fg)}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:44px;align-items:start;padding-block:64px 36px}
+.hero h1{font:400 clamp(38px,6vw,58px)/1.05 var(--serif);margin:0 0 8px;letter-spacing:-.01em}
+.hero .role{font:500 15px var(--sans);color:var(--muted);margin:0 0 24px}
+.hero p{margin:0;max-width:58ch}
+.hero .links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:24px;font:500 14px var(--sans)}
+.photo{width:210px;margin-top:6px;aspect-ratio:4/5;max-width:100%;border:1px solid var(--line);display:grid;place-items:center;font:12px var(--mono);color:var(--muted);text-align:center;background:repeating-linear-gradient(0deg,transparent 0 19px,var(--line) 19px 20px)}
+
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1.5px solid var(--rule);font-family:var(--sans)}
+.facts div{padding:16px 14px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:500 24px/1.2 var(--serif);font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+
+section{padding-top:56px;scroll-margin-top:64px}
+section h2{display:flex;gap:14px;align-items:baseline;font:500 26px/1.2 var(--serif);margin:0 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+section h2 small{font:500 14px var(--mono);color:var(--accent)}
+.entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:14px}
+.entry+.entry{border-top:1px solid var(--line)}
+.meta{font:13px/1.5 var(--sans);color:var(--muted);padding-top:4px}
+.entry h3{font:600 19px/1.35 var(--serif);margin:0}
+.entry .sub{font:14px var(--sans);color:var(--muted);margin:2px 0 8px}
+.entry p{margin:0 0 6px;max-width:64ch}
+.entry ul{margin:6px 0 0;padding-left:20px;max-width:64ch}
+.entry li+li{margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding:0;list-style:none}
+.tags li{font:12px var(--mono);color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:3px}
+.status{font:500 11px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-left:8px;white-space:nowrap}
+
+.skills{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px 28px;margin:0}
+.skills dt{font:500 14px var(--sans);color:var(--muted);padding-top:2px}
+.skills dd{margin:0}
+.about p{max-width:64ch;margin:0 0 14px}
+.contact p{margin:0 0 8px}
+.contact .row{display:flex;flex-wrap:wrap;gap:10px 28px;font:15px var(--sans)}
+.contact code{font:15px var(--mono)}
+footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--line);font:13px var(--sans);color:var(--muted)}
+
+@media (max-width:680px){
+  body{font-size:16px}
+  .hero{grid-template-columns:1fr;padding-top:40px}
+  .photo{width:170px;order:-1;margin-top:0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(2){border-right:0}
+  .facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .entry,.skills{grid-template-columns:1fr}
+  .meta{padding-top:0}
+  nav ul{gap:14px}
+}
+.photo{object-fit:cover;background:none}
+.paper-link{font:500 14px var(--sans)}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <nav>
+    <a class="name" href="#top">Ahmed Ghaben</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Ahmed Ghaben</h1>
+      <p class="role">Applied Mathematics &amp; Computer Science · MIPT · Moscow, Russia</p>
+      <p>I am a third-year student at the Moscow Institute of Physics and Technology. My current research focuses on diverse solutions to combinatorial optimization problems, and I have experience building full-stack software.</p>
+      <div class="links">
+        <a href="mailto:ghabenahmed25@gmail.com">Email</a>
+        <a href="https://github.com/AhmedGhaben">GitHub</a>
+        <a href="https://www.linkedin.com/in/ahmedghaben/">LinkedIn</a>
+        <a href="Ahmed_Ghaben_CV.pdf">CV (PDF)</a>
+      </div>
+    </div>
+    <img class="photo" src="photo.jpg" alt="Portrait of Ahmed Ghaben">
+  </header>
+
+  <div class="facts">
+    <div><b>9.14 / 10</b><span>GPA at MIPT</span></div>
+    <div><b>2</b><span>Research manuscripts</span></div>
+    <div><b>Python, C++</b><span>Main languages</span></div>
+    <div><b>EN · AR · RU</b><span>Languages</span></div>
+  </div>
+
+  <section id="research">
+    <h2><small>1</small>Research</h2>
+    <p class="sub" style="font:14px var(--sans);color:var(--muted);margin:0 0 8px">Ongoing work supervised by Danil Sagunov. Both projects began at LIPS 2026, the summer research programme of MIPT's Laboratory of Combinatorial and Geometric Structures, and have continued since.</p>
+    <div class="entry">
+      <div class="meta">2026 – present<span class="status">Ongoing</span><br>Joint work</div>
+      <div>
+        <h3>Diverse matroid bases and spanning trees</h3>
+        <ul>
+          <li>Proved that finding three matroid bases maximizing the minimum pairwise distance is solvable in polynomial time, using O(r) oracle calls, and in O(n) time for spanning trees.</li>
+          <li>Proved the same for four diverse spanning trees, and showed that the optimal minimum distance is determined by the optimal total distance.</li>
+          <li>Extended the four-basis result to general matroids.</li>
+        </ul>
+        <p class="sub">Manuscript in preparation. Presented at the LIPS 2026 conference, MIPT.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="meta">2026 – present<span class="status">Ongoing</span><br>Joint work</div>
+      <div>
+        <h3>Diverse maximum cuts in planar graphs</h3>
+        <ul>
+          <li>Characterized exactly when a graph has three maximum cuts at the largest possible pairwise distance, reducing a search over triples to a search over pairs.</li>
+          <li>For planar graphs, showed this happens exactly when the max-cut bound 3·OPT ≥ 2m is tight, which makes this case of an open problem decidable and constructive in polynomial time.</li>
+          <li>Checked the characterization by exhaustive computation on more than 23,000 graphs.</li>
+        </ul>
+        <p class="sub">Manuscript in preparation. Presented at the LIPS 2026 conference, MIPT.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2><small>2</small>Projects</h2>
+    <div class="entry">
+      <div class="meta">Founder<span class="status">In development</span><br><a href="https://github.com/AhmedGhaben/POS">GitHub</a></div>
+      <div>
+        <h3>Cloud point-of-sale system</h3>
+        <p>A multi-store point-of-sale platform for retail businesses, covering checkout, inventory, purchasing, returns, staff and reporting.</p>
+        <ul>
+          <li>Checkout with split payments, customer lookup and receipts; stock transfers between stores run as single database transactions.</li>
+          <li>Owner dashboard with revenue and profit trends, and an AI briefing that summarises store performance and suggests what to restock, using only the store's own data.</li>
+          <li>Role-based access with per-user permission overrides, refresh-token rotation with reuse detection, and an audit log of every change.</li>
+          <li>Unit tests, GitHub Actions CI and Docker builds for the full stack.</li>
+        </ul>
+        <ul class="tags"><li>TypeScript</li><li>React</li><li>NestJS</li><li>PostgreSQL</li><li>Prisma</li><li>Docker</li><li>Claude API</li></ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="meta">Co-developer<br>2025<br><a href="https://github.com/AhmedGhaben/MyProfit">GitHub</a></div>
+      <div>
+        <h3>MyProfit: personal finance assistant and trading bot</h3>
+        <p>A Telegram bot that manages a user's budget and runs an automated trading engine alongside it. Built with Oscar Prada over two iterations.</p>
+        <ul>
+          <li>Built the financial engine: income and expense analysis by category, monthly reports, savings recommendations and a suggested trading budget that the trading engine uses.</li>
+          <li>Built the Telegram interface and the integration layer: all bot commands and conversation flows, input validation and persistence, coordinating the finance and trading engines.</li>
+          <li>Built trade reporting: event summaries, recent-trade tables and executed-price charts.</li>
+          <li>The trading engine, written by my co-developer, trades an EMA crossover strategy on live market data from OANDA and Binance and runs independently of the bot.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>Telegram Bot API</li><li>OANDA / Binance APIs</li></ul>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="meta">Solo<span class="status">In development</span><br><a href="https://github.com/AhmedGhaben/Bura">GitHub</a></div>
+      <div>
+        <h3>Bura card game</h3>
+        <p>A Python implementation of the two-player card game Bura with a Pygame interface. The game logic is kept separate from the interface and covered by tests. Planned next: full matches, computer opponents at three difficulty levels and an LLM-based opponent.</p>
+        <ul class="tags"><li>Python</li><li>Pygame</li><li>pytest</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2><small>3</small>Education</h2>
+    <div class="entry">
+      <div class="meta">2024 – 2028 (expected)</div>
+      <div>
+        <h3>Moscow Institute of Physics and Technology (MIPT)</h3>
+        <div class="sub">BSc Applied Mathematics and Computer Science, English-taught programme</div>
+        <p>GPA 9.14 / 10.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2><small>4</small>Skills</h2>
+    <dl class="skills">
+      <dt>Mathematics</dt><dd>Probability, linear algebra, optimization, algorithms, graph theory</dd>
+      <dt>Programming</dt><dd>Python, C++, TypeScript</dd>
+      <dt>Tools</dt><dd>React, NestJS, PostgreSQL, Docker, Git, pytest</dd>
+      <dt>Currently learning</dt><dd>Machine learning</dd>
+      <dt>Languages</dt><dd>Arabic (native), English (fluent), Russian (intermediate)</dd>
+    </dl>
+  </section>
+
+  <section id="about" class="about">
+    <h2><small>5</small>About</h2>
+    <p>Currently pursuing my studies while also working part-time as a teacher of IGCSE Mathematics and ICT at Riverside International School. Beyond work and studies, I maintain a healthy lifestyle. I spend my free time training at the gym and playing football. I also enjoy reading and writing.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2><small>6</small>Contact</h2>
+    <p>I am open to internships in quantitative research and software engineering.</p>
+    <div class="row">
+      <span>Moscow, Russia</span>
+      <code>ghabenahmed25@gmail.com</code>
+      <a href="https://github.com/AhmedGhaben">github.com/AhmedGhaben</a>
+      <a href="https://www.linkedin.com/in/ahmedghaben/">linkedin.com/in/ahmedghaben</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Ahmed Ghaben</footer>
+</div>
+</body>
+</html>
